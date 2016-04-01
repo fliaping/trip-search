@@ -1,0 +1,2 @@
+# 忽略java编译生成的class文件
+*.class
