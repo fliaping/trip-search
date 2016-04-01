@@ -1,2 +1,2 @@
-# 忽略core中的索引数据，例如./trip/data目录不添加到git
+# 忽略core中的索引数据，例如./trip/data目录不添加到git.
 */data/*
