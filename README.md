@@ -4,4 +4,4 @@
 start
 day 1
 
-I'm going to learn merge (master)
+I'm going to learn merge (merge)
