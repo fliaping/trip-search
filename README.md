@@ -1,7 +1,4 @@
 # trip-search
-毕业设计
+毕业设计 -- 旅游垂直搜索引擎
 
-start
-day 1
-
-I'm going to learn merge (merge)
+developing
