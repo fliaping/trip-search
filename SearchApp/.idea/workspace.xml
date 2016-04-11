@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e109ff40-14e1-4c83-bb56-cf508c64a636" name="Default" comment="add Search App">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/images/logo-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/images/search-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/SearchApp.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/ResultList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/learnApp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/searchIndex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/learn.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ionic/css/ionic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/mapSearch.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__com_google_code_gson_gson_2_6_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__com_squareup_okhttp_okhttp_2_7_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__com_squareup_okio_okio_1_6_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__commons_io_commons_io_2_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_4_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_apache_httpcomponents_httpcore_4_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_apache_httpcomponents_httpmime_4_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_apache_solr_solr_solrj_5_5_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_apache_zookeeper_zookeeper_3_4_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_codehaus_woodstox_stax2_api_3_1_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_codehaus_woodstox_woodstox_core_asl_4_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_noggit_noggit_0_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_slf4j_jcl_over_slf4j_1_7_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_20.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/Gradle__org_slf4j_slf4j_simple_1_7_20.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/libraries/solr_solrj_5_5_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/SearchService.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/build.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/settings.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/DoQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/HttpQuery.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/MySolrClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/Search.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/Setting.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/entity/Sight.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/entity/SightBrief.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/entity/SightDetail.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/java/com/fliaping/trip/search/entity/SightList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/main/webapp/WEB-INF/web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SearchService/src/test/java/com/fliaping/trip/search/DoQueryTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../HtmlParser/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../HtmlParser/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SolrHome/trip/conf/data-config.xml" afterPath="$PROJECT_DIR$/../SolrHome/trip/conf/data-config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SolrHome/trip/conf/dataimport.properties" afterPath="$PROJECT_DIR$/../SolrHome/trip/conf/dataimport.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SolrHome/trip/conf/managed-schema" afterPath="$PROJECT_DIR$/../SolrHome/trip/conf/managed-schema" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SolrHome/trip/conf/solrconfig.xml" afterPath="$PROJECT_DIR$/../SolrHome/trip/conf/solrconfig.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SolrHome/trip/conf/stopwords.txt" afterPath="$PROJECT_DIR$/../SolrHome/trip/conf/stopwords.txt" />
+    </list>
+    <ignored path="Search.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Search" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/form.html" />
+        <option value="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/js/app.js" />
+        <option value="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/learn.html" />
+        <option value="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/js/search-index.js" />
+        <option value="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/mapSearch.html" />
+        <option value="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/ResultList.html" />
+        <option value="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/index.html" />
+        <option value="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/js/searchIndex.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1298" />
+    <option name="y" value="23" />
+    <option name="width" value="1215" />
+    <option name="height" value="697" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SearchApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SearchApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SearchApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="settings.editor.selected.configurable" value="liveEdit" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/assets/images" />
+      <recent name="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/lib/ionic/css" />
+      <recent name="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/lib/ionic/js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Search/www/index.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="learnApp.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js/learnApp.js" working-dir="$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js">
+      <method />
+    </configuration>
+    <configuration default="false" name="learn.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Search/www/learn.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="searchIndex.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js/searchIndex.js" working-dir="$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.learnApp.js" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.learn.html" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.searchIndex.js" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.searchIndex.js" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.learn.html" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.learnApp.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e109ff40-14e1-4c83-bb56-cf508c64a636" name="Default" comment="" />
+      <created>1460091191914</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1460091191914</updated>
+      <workItem from="1460091194041" duration="118000" />
+      <workItem from="1460091425790" duration="456000" />
+      <workItem from="1460179287637" duration="10941000" />
+      <workItem from="1460342962301" duration="14939000" />
+      <workItem from="1460375157098" duration="60000" />
+      <workItem from="1460375270782" duration="371000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="26885000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1298" y="23" width="1215" height="697" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25185186" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32961783" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32324842" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add Search App" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Search App" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/learn.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/index.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js/searchIndex.js" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/mapSearch.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/ResultList.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js/learnApp.js" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/learn.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js/learnApp.js" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/form.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/learn.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/learn.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/lib/ionic/css/ionic.css" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/Search/www/form.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/lib/ionic/js/ionic.bundle.js" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/learn.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/mapSearch.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/ResultList.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js/learnApp.js" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/index.html" />
+    <entry file="file://$PROJECT_DIR$/../../../GraduateProject/Ionic/SearchApp/www/js/searchIndex.js" />
+  </component>
+</project>

@@ -1,0 +1,35 @@
+group 'com.fliaping.trip.search'
+version '0.1'
+
+apply plugin: 'jetty'
+
+
+sourceCompatibility = 1.5
+
+repositories {
+    //mavenCentral()
+    maven { url 'http://maven.oschina.net/content/groups/public/' }
+    flatDir { dirs 'lib' }
+}
+
+dependencies {
+    //compile , runtime,providedCompile
+    //runtime files('libs/a.jar', 'libs/b.jar')
+    //runtime fileTree(dir: 'libs', include: '*.jar')
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'org.slf4j:slf4j-simple:1.7.20'
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+    compile 'org.apache.solr:solr-solrj:5.5.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+
+}
+task copyJars(type: Copy) {
+    from configurations.runtime
+    into 'libs' // 目标位置
+}
+
+jettyRun {
+    httpPort = 9090
+    contextPath = ''
+}

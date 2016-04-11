@@ -509,8 +509,8 @@
       For more information about this and other Spatial fields new to Solr 4, see:
       http://wiki.apache.org/solr/SolrAdaptersForLuceneSpatial4
     -->
-    <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
-        geo="true" distErrPct="0.025" maxDistErr="0.001" distanceUnits="kilometers" />
+    <!-- <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType"
+        geo="true" distErrPct="0.025" maxDistErr="0.001" distanceUnits="kilometers" /> -->
 
     <!-- Spatial rectangle (bounding box) field. It supports most spatial predicates, and has
      special relevancy modes: score=overlapRatio|area|area2D (local-param to the query).  DocValues is recommended for
@@ -541,38 +541,58 @@
 
     <fieldType name="text_mmseg4j_complex" class="solr.TextField" positionIncrementGap="100" >
        <analyzer>
-          <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="complex" dicPath="./"/>
+          <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="complex" dicPath="/Users/Payne/Workspace/GitHub/trip-search/SolrHome/trip/conf"/>
           <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
         </analyzer>
     </fieldType>
     <fieldType name="text_mmseg4j_maxword" class="solr.TextField" positionIncrementGap="100" >
          <analyzer>
-           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="./"/>
+           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="/Users/Payne/Workspace/GitHub/trip-search/SolrHome/trip/conf"/>
            <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
          </analyzer>
      </fieldType>
      <fieldType name="text_mmseg4j_simple" class="solr.TextField" positionIncrementGap="100" >
         <analyzer>
-           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="simple" dicPath="./"/>
+           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="simple" dicPath="/Users/Payne/Workspace/GitHub/trip-search/SolrHome/trip/conf"/>
            <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
          </analyzer>
      </fieldType>
 <!-- mmseg4j-->
+  <fieldType  name="location_rpt"     class="solr.SpatialRecursivePrefixTreeFieldType" spatialContextFactory="com.spatial4j.core.context.jts.JtsSpatialContextFactory" distErrPct="0.025" maxDistErr="0.000009" units="degrees"/>
 
-  <field name="sight_id" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
+  <field name="sight_id" type="int" indexed="true" stored="true" required="true" multiValued="false"/>
   <field name="sight_name" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
-  <field name="sight_score_ctrip" type="text_mmseg4j_maxword" stored="true"/>
+  <field name="sight_score_ctrip" type="float" stored="true"/>
   <field name="sight_intro" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
   <field name="sight_address" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
-  <field name="sight_coordinate" type="text_mmseg4j_maxword"  stored="true"/>
-  <field name="sight_type" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
 
-  <field name="pageurl" type="text_mmseg4j_maxword"  stored="true"/>
+  <field name="sight_coordinate" type="location_rpt"  indexed="true"     stored="true"     multiValued="false" />
+  
+  <field name="sight_type" type="string" indexed="true" stored="true" multiValued="true"/>
+  <field name="sight_type_to" type="text_mmseg4j_maxword" indexed="true" multiValued="true"/>
+  <copyField source="sight_type" dest="sight_type_to"/>
 
-  <field name="sight_place_1" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
-  <field name="sight_place_2" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
-  <field name="sight_place_3" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
-  <field name="sight_place_4" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
-  <field name="sight_place_5" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
+  <field name="pageurl" type="string"  stored="true"/>
+
+  <dynamicField name="sight_place_*" type="string" indexed="true" stored="true" multiValued="false"/>
+  <field name="sight_place_to" type="text_mmseg4j_complex" indexed="true" multiValued="true"/>
+  <copyField source="sight_place_*" dest="sight_place_to"/>
+
+  
+
+
+  <!-- <defaultSearchField>myquery</defaultSearchField> -->
+  <solrQueryParser defaultOperator="AND"/>
+
+  <field name="myquery" type="text_mmseg4j_maxword" indexed="true" stored="false" multiValued="true"/>
+  <copyField source="sight_name" dest="myquery"/>
+  <copyField source="sight_intro" dest="myquery"/>
+  <copyField source="sight_address" dest="myquery"/>
+
+  
+
+
+
+  
 
 </schema>

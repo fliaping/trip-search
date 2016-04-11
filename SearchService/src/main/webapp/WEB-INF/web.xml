@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee">
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>com.fliaping.trip.search.Search</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/ss</url-pattern>
+    </servlet-mapping>
+</web-app>

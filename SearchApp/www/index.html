@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search-Index</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- 在使用 Cordova/PhoneGap 创建的 APP 中包含的文件，由 Cordova/PhoneGap 提供，(开发过程中显示 404) -->
+    <!--<script src="cordova.js"></script>-->
+</head>
+<body ng-app="searchIndex" ng-controller="indexCtrl">
+
+<ion-side-menus>
+    <!--中心内容-->
+    <ion-side-menu-content>
+        <ion-header-bar class="bar-positive">
+            <button class="button button-icon" ng-click="catSearchMenu()">
+                <i class="icon ion-navicon"></i>
+            </button>
+            <h1 class="title">TripSearch</h1>
+        </ion-header-bar>
+        <ion-content scroll="true">
+            <!--主页内容-->
+            <!--头部空白-->
+            <div class="row">
+                <div class="col">
+                </div>
+            </div>
+            <!--logo位置-->
+            <div class="row">
+                <div class="col text-center">
+                    <img src="assets/images/logo-icon.png">
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col"></div>
+            </div>
+            <!--搜索框-->
+            <div class="row">
+                <div class="col col-10"></div>
+                <div class="col">
+                    <label class="item item-input">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" ng-click="openSearch()" placeholder="搜索景点">
+                    </label>
+                </div>
+                <div class="col col-10"></div>
+            </div>
+            <div class="row" >
+                <div class="col"></div>
+            </div>
+            <!--随机景点位置-->
+            <div class="row">
+                <div class="col text-center">
+                    随机景点
+                </div>
+            </div>
+
+            <!--附近景点推荐-->
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="item item-divider">
+                            <label>
+                                附近热门景点推荐
+                                <a href="#" style="float: right;"><i class="icon ion-pinpoint"></i> 深圳</a>
+                            </label>
+                        </div>
+                        <div class="list">
+                            <a class="item " href="#">
+                                <h2>九寨沟 <i style="float: right;font-size: 12px">评分:4.5</i></h2>
+                                <p>简介:</p>
+                            </a>
+                            <a class="item item-thumbnail-left" href="#">
+                                <img src="http://www.runoob.com/try/demo_source/blue-album.jpg">
+                                <h2>九寨沟 <i style="float: right;font-size: 12px">评分:4.5</i></h2>
+                                <p>简介:</p>
+                            </a>
+                            <a class="item item-thumbnail-left" href="#">
+                                <img src="http://www.runoob.com/try/demo_source/blue-album.jpg">
+                                <h2>九寨沟 <i style="float: right;font-size: 12px">评分:4.5</i></h2>
+                                <p>简介:</p>
+                            </a>
+
+                        </div>
+                        <div class="item item-divider">
+                            <a class="" href="#">展开图文列表</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--搜索引擎状态-->
+            <div class="row">
+                <div class="col text-center">
+                    搜索引擎状态
+                </div>
+            </div>
+
+        </ion-content>
+    </ion-side-menu-content>
+    <!--左侧菜单-->
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">景点分类</h1>
+        </ion-header-bar>
+        <ion-content scroll="false">
+            <ion-list>
+                <ion-item>
+                    地区
+                </ion-item>
+                <ion-item>
+                    评分
+                </ion-item>
+            </ion-list>
+        </ion-content>
+
+    </ion-side-menu>
+</ion-side-menus>
+<!--搜索输入页面-->
+<script id="searchInput.html" type="text/ng-template">
+
+    <div class="modal">
+
+        <!-- Modal header bar -->
+        <div class="bar bar-header item-input-inset">
+            <i ng-click="closeSearch()"><i class="icon ion-chevron-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;</i>
+            <!--搜索框-->
+
+                <label class="item-input-wrapper">
+                    <i class="icon ion-ios-search placeholder-icon"></i>
+                    <input type="search" placeholder="输入景点" ng-model="search.content">
+                </label>
+            <form ng-submit="doSearch(search)">
+                <button type="submit" class="button button-clear">
+                    搜索
+                </button>
+            </form>
+        </div>
+
+        <!-- Modal content area -->
+        <ion-content>
+            <!--搜索建议-->
+            {{searchresult}}
+        </ion-content>
+
+    </div>
+
+</script>
+<script src="js/searchIndex.js"></script>
+</body>
+</html>
