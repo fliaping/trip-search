@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=bf423317ab1ad469d88c5b0bb28ad108"></script>
+</head>
+<body>
+<!--地图-->
+<div id="container"  style="width: 500px;height: 300px;"></div>
+<script type="text/javascript">
+    var coor = "22.191246,113.558843".split(",");
+    console.log("lat:"+coor[0]+"lng:"+coor[1]);
+    var map = new AMap.Map('container',{
+        zoom: 10,
+        center: [113.913913,22.517284],
+    });
+    var marker = new AMap.Marker({
+        position: [113.913913,22.517284],
+        map:map
+    });
+</script>
+</body>
+</html>

@@ -3,7 +3,32 @@ package com.fliaping.trip.search;
 
 /**
  * Created by Payne on 4/4/16.
+ * url参数意义
+ *    keyword          关键词                               null
+ *    point            坐标点                               null
+ *    distance         距离                                 100KM
+ *    bound_type       界限方式{geofilt,bbox,linestring,polygon}   null
+ *    boundary         范围                                 null
+ *    sort_order       排序方式 {score,distance}             null
+ *    sight_type       景点类型                              null
+ *    place            行政区划                              null
+ *    page             页数                                  1
+ *    rows             每页记录条数                           10
+ *    query_type       查询方式{near,key,map}                     near
  */
+enum UrlP{   // url parameter enum ,url参数枚举
+    keyword,           //关键词                               null
+    point,             //坐标点                               null
+    distance,          //距离                                 100KM
+    bound_type,        //界限方式{geofilt,bbox,linestring,polygon}   null
+    boundary,          //范围                                 null
+    sort_order,        //排序方式 {score,distance}             null
+    sight_type,        //景点类型                              null
+    place,             //行政区划                              null
+    page,              //页数                                  1
+    rows,              //每页记录条数                           10
+    query_type         //查询方式{near,key,map}                     near
+}
 
 
 enum  BoundType {
@@ -11,7 +36,6 @@ enum  BoundType {
     bbox("bbox"),
     linestring("linestring"),
     polygon("polygon");
-
 
     private String name;
     BoundType(String name) { this.name = name; }
@@ -42,20 +66,6 @@ enum QueryType {
     QueryType(String name) { this.name = name; }
     public String get(){ return this.name; }
     public boolean is(String is){ return name.equals(is); }
-}
-
-
-enum UrlP{   // url parameter enum ,url参数枚举
-    keyword,
-    point,
-    distance,
-    bound_type,
-    boundary,
-    sort_order,
-    sight_type,
-    page,
-    rows,
-    query_type
 }
 
 

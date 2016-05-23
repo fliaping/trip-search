@@ -1,0 +1,121 @@
+<ion-view title="ResultList">
+    <ion-side-menus>
+    <ion-side-menu-content>
+        <ion-header-bar>
+            <div class="item item-input-inset" style="width: 100%;background: none;border: none;">
+                <!--<i ng-click="closeSearch()"><i class="icon ion-ios-close-outline" ></i>&nbsp;&nbsp; &nbsp;&nbsp;</i>-->
+                <a class="button button-clear icon  ion-ios-arrow-left" nav-direction="back" href="#/home"></a> &nbsp;&nbsp;
+                <!--搜索框-->
+
+                <label class="item-input-wrapper">
+                    <i class="icon ion-ios-search placeholder-icon"></i>
+                    <input type="search" placeholder="{{searchKey}}" ng-model="search.content" ng-click="openSearch()">
+                </label>
+
+                <button class="button button-clear" ng-click="catFacetMenu()">
+                    Maps
+                </button>
+
+            </div>
+        </ion-header-bar>
+
+        <ion-content>
+                <div class="list" style="padding-bottom: 70px;">
+
+                    <a class="item " nav-direction="enter" href="#/sightDetail/key/{{item.id}}" ng-repeat="item in ksResults.sights">
+                        <h2>{{item.name}} <i style="float: right;font-size: 12px">评分:{{item.score_ctrip}}</i></h2>
+                        <p>简介:{{item.intro}}</p>
+                    </a>
+
+                   <!-- <a class="item item-thumbnail-left" href="#">
+                        <img src="http://www.runoob.com/try/demo_source/blue-album.jpg">
+                        <h2>九寨沟 <i style="float: right;font-size: 12px">评分:4.5</i></h2>
+                        <p>简介:</p>
+                    </a>-->
+
+
+                </div>
+
+        </ion-content>
+
+        <div class="bar bar-footer">
+            <div class="button-bar">
+                <a class="button" ng-click="popover.show($event)">排序</a>
+                <a class="button"> 地图</a>
+                <a class="button" ng-click="catFacetMenu()" ng-hide="">筛选</a>
+            </div>
+        </div>
+
+    </ion-side-menu-content>
+
+    <ion-side-menu side="right" >
+        <ion-header-bar class="bar">
+
+            <button class="button button-icon icon " ng-class="{'ion-ios-circle-outline':facetview.typeUncheck,'ion-ios-checkmark-outline':facetview.typeCheckAll}"
+                    ng-click="typeCheckButton(facetview)"></button>
+            <h1 class="title">筛选</h1>
+            <button class="button" ng-show="facetview.showCompleteButton" ng-click="completeAction(facetview)">
+                完成
+            </button>
+        </ion-header-bar>
+        <ion-content scroll="true">
+            <!--筛选主页-->
+            <div ng-hide="facetview.hidehome">
+                <ion-list >
+                    <ion-item ng-click="showSightType()">
+                        景点类型 <i class=" icon icon-right ion-chevron-right"></i>
+                    </ion-item>
+                    <ion-item>
+                        距离区间
+                    </ion-item>
+                    <ion-item>
+                        地区
+                    </ion-item>
+                    <ion-item>
+                        评分
+                    </ion-item>
+                </ion-list>
+            </div>
+
+
+            <!--景点分类页-->
+            <div ng-show="facetview.showsightType">
+                <ion-list >
+                    <ion-checkbox ng-repeat="item in sightFacets[0].items"
+                                  ng-model="item.checked"
+                                  ng-checked="item.checked"
+                                  ng-click="checkTypeItemAction(item)">
+                        {{item.name}} ({{item.count}})
+                    </ion-checkbox>
+                </ion-list>
+            </div>
+
+        </ion-content>
+
+    </ion-side-menu>
+</ion-side-menus>
+</ion-view>
+<script id="templates/popover.html" type="text/ng-template">
+        <ion-popover-view >
+            <ion-content scroll="false">
+                <div class="list" >
+                    <ion-radio  ng-model="popover.sortType" value="distance"  ng-click="sortAction()">
+                        按距离排序
+                    </ion-radio >
+                    <ion-radio ng-model="popover.sortType" value="score" ng-click="sortAction()">
+                        按评分排序
+                    </ion-radio>
+                    <ion-radio ng-model="popover.sortType" value="price" ng-click="sortAction()">
+                        按价格排序
+                    </ion-radio>
+                    <ion-radio ng-model="popover.sortType" value="best" ng-click="sortAction()">
+                        综合排序
+                    </ion-radio>
+                    <ion-radio ng-model="popover.sortType" value="keyword" ng-click="sortAction()">
+                        关键词最佳匹配
+                    </ion-radio>
+
+                </div>
+            </ion-content>
+    </ion-popover-view>
+</script>

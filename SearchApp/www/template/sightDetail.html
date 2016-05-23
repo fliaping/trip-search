@@ -1,0 +1,54 @@
+<ion-view title="{{sight.name}}">
+
+    <ion-nav-bar class="bar"><!--bar-positive-->
+        <ion-nav-back-button class="button-icon ion-ios-arrow-left">
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="right">
+            <a class="button button-icon ion-ios-paperplane-outline" href="{{sight.pageurl}}"></a>
+            <!--ion-ios-upload-outline   ion-ios-world-outline-->
+        </ion-nav-buttons>
+
+    </ion-nav-bar>
+    <ion-content>
+
+        <!--图片滚动栏-->
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <div class="box blue"><h1>BLUE</h1></div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box yellow"><h1>YELLOW</h1></div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box pink"><h1>PINK</h1></div>
+            </ion-slide>
+        </ion-slide-box>
+        <!--基本信息-->
+        <div class="card" >
+            <div class="item item-divider">
+                景点介绍
+            </div>
+            <div class="item item-text-wrap">
+                {{sight.intro}}
+            </div>
+        </div>
+        <!--地图-->
+        <div id="container" class="card" style="height: 200px;"></div>
+
+        <!--详细介绍,评论,线路票务-->
+        <div class="card" >
+            <div class="item item-divider">
+                评论
+            </div>
+            <div class="item item-text-wrap">
+                <!--详细介绍,评论,线路票务-->
+            </div>
+        </div>
+
+        <ion-content>
+
+</ion-view>
+<script></script>
+
+

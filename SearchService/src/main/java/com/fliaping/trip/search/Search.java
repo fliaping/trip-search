@@ -11,18 +11,7 @@ import java.util.Map;
 
 /**
  * Created by Payne on 4/2/16.
- * url参数意义
- *    keyword          关键词                               null
- *    point            坐标点                               null
- *    distance         距离                                 100KM
- *    bound_type       界限方式{geofilt,bbox,linestring,polygon}   null
- *    boundary         范围                                 null
- *    sort_order       排序方式 {score,distance}             null
- *    sight_type       景点类型                              null
- *    place_i          行政区划                              null
- *    page             页数                                  1
- *    rows             每页记录条数                           10
- *    query_type       查询方式{near,key}                     near
+ *
  */
 public class Search extends HttpServlet{
     private Map<String, String[]> urlMap;
@@ -33,7 +22,8 @@ public class Search extends HttpServlet{
         DoQuery query = new DoQuery(req,resp);
         String query_type = req.getParameter(UrlP.query_type.name());
 
-        if (!Setting.contains(query_type, UrlP.query_type)) query_type = QueryType.near.get(); //没有定义的query_type方法,设置默认
+        if (!Setting.contains(query_type, UrlP.query_type))
+            query_type = QueryType.near.get(); //没有定义的query_type方法,设置默认
 
 
         if (QueryType.key.is(query_type)){    //关键词查询

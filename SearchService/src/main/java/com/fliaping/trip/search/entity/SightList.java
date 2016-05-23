@@ -11,6 +11,8 @@ import java.util.List;
 public class SightList {
     private List sights;
 
+    private List sightFacets;
+
     private long totalNum;
 
     private int totalPage;
@@ -20,7 +22,6 @@ public class SightList {
     private long time;
 
     public SightList(){
-        if (sights == null) sights = new ArrayList<SightBrief>();
     }
 
     public void add(SightBrief sight){
@@ -56,6 +57,10 @@ public class SightList {
         return time;
     }
 
+    public List getSightFacets() {
+        return sightFacets;
+    }
+
     public void setSights(List sights) {
         this.sights = sights;
     }
@@ -74,5 +79,9 @@ public class SightList {
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public void setSightFacets(List sightFacets) {
+        this.sightFacets = sightFacets;
     }
 }

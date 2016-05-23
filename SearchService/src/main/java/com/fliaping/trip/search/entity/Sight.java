@@ -37,6 +37,9 @@ public class Sight {
     @Field("pageurl")
     private String pageurl;
 
+    @Field("_dist_")
+    private double _dist_;
+
     public int getId() {
         return id;
     }
@@ -73,6 +76,10 @@ public class Sight {
         return pageurl;
     }
 
+    public double get_dist_() {
+        return _dist_;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -107,5 +114,9 @@ public class Sight {
 
     public void setPageurl(String pageurl) {
         this.pageurl = pageurl;
+    }
+
+    public void set_dist_(double _dist_) {
+        this._dist_ = _dist_;
     }
 }

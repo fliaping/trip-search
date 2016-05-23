@@ -1,0 +1,28 @@
+<!--搜索输入页面-->
+
+
+<div class="modal">
+
+    <!-- Modal header bar -->
+    <div class="bar bar-header item-input-inset">
+        <!--<i ng-click="closeSearch()"><i class="icon ion-ios-close-outline" ></i>&nbsp;&nbsp; &nbsp;&nbsp;</i>-->
+        <button ng-click="closeSearch()" style="height: 5px;" class="button button-clear button-dark icon ion-ios-close-outline"></button>
+        <!--搜索框-->
+
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="输入景点" ng-model="search.content" focus-me="{{focusSearchInput}}">
+        </label>
+        <form ng-submit="doSearch(search)">
+            <button type="submit" class="button button-clear">
+                搜索
+            </button>
+        </form>
+    </div>
+
+    <!-- Modal content area -->
+    <ion-content>
+        <!--搜索建议-->
+    </ion-content>
+
+</div>

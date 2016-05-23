@@ -7,8 +7,8 @@ apply plugin: 'jetty'
 sourceCompatibility = 1.5
 
 repositories {
-    //mavenCentral()
-    maven { url 'http://maven.oschina.net/content/groups/public/' }
+    mavenCentral()
+    //maven { url 'http://maven.oschina.net/content/groups/public/' }
     flatDir { dirs 'lib' }
 }
 
