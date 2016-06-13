@@ -1,0 +1,38 @@
+group 'trip.fliaping.com'
+version '0.1'
+
+apply plugin: 'idea'
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "us.codecraft:webmagic-core:0.5.3"
+    compile "us.codecraft:webmagic-extension:0.5.3"
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+
+}
+
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes 'Main-Class': 'com.fliaping.trip.spider.Main'
+    }
+}
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'repos'
+        }
+    }
+}
+
+
+

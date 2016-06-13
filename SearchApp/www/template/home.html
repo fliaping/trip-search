@@ -34,7 +34,7 @@
                     <div class="col">
                         <label class="item item-input">
                             <i class="icon ion-search placeholder-icon"></i>
-                            <input type="text" ng-click="openSearch()" placeholder="搜索景点">
+                            <input type="text" ng-model="search.content" ng-click="openSearch()" placeholder="搜索景点">
                         </label>
                     </div>
                     <div class="col col-10"></div>
@@ -43,11 +43,7 @@
                     <div class="col"></div>
                 </div>
                 <!--随机景点位置-->
-                <div class="row">
-                    <div class="col text-center">
-                        随机景点
-                    </div>
-                </div>
+
 
                 <!--附近景点推荐-->
                 <div class="row">
@@ -56,29 +52,22 @@
                             <div class="item item-divider">
                                 <label >
                                     附近热门景点推荐
-                                    <button  ng-click="openLocation()" style="float: right;" class="button icon-left ion-pinpoint button-clear button-positive button-small"><!--<i class="icon ion-pinpoint"></i>--> 深圳</button>
+                                    <button  ng-click="openLocation()" style="float: right;" class="button icon-left ion-pinpoint button-clear button-positive button-small"><!--<i class="icon ion-pinpoint"></i>--> 定位</button>
                                 </label>
                             </div>
                             <div class="list">
 
                                 <a ng-repeat="sight in nsResults.sights" class="item" nav-direction="enter" href="#/sightDetail/near/{{sight.id}}">
-                                    <h2>{{sight.name}} <i style="float: right;font-size: 12px">{{sight._dist_ | distance}}&nbsp;&nbsp;评分:{{sight.score_ctrip}}</i></h2>
-                                    <p>简介:{{sight.intro}}</p>
+                                    <h2>{{sight.name}} <i style="float: right;font-size: 12px">{{sight._dist_ | distance}}&nbsp;&nbsp;评分: {{sight.score}}</i></h2>
+                                    <p>简介:{{sight.intro | offhtml}}</p>
                                 </a>
-
-                                <!--<a class="item " href="#">
-                                    <h2>九寨沟 <i style="float: right;font-size: 12px">评分:4.5</i></h2>
-                                    <p>简介:</p>
-                                </a>
-                                <a class="item item-thumbnail-left" href="#">
-                                    <img src="http://www.runoob.com/try/demo_source/blue-album.jpg">
-                                    <h2>九寨沟 <i style="float: right;font-size: 12px">评分:4.5</i></h2>
-                                    <p>简介:</p>
-                                </a>-->
+                                <div style="width: 100%;padding-left: 45%">
+                                    <ion-spinner icon="spiral" ng-hide="hidespinner"></ion-spinner>
+                                </div>
 
                             </div>
                             <div class="item item-divider">
-                                <a class="" href="#" ng-click="nearSight(response.nowPage+1)">展开图文列表</a>
+                                <button class="button button-outline button-positive button-small"   ng-click="nearSight(nsResults.nowPage+1)">加载更多</button>
                             </div>
                         </div>
                     </div>
@@ -97,15 +86,12 @@
 
         <ion-side-menu side="left" expose-aside-when="large">
             <ion-header-bar class="bar-positive">
-                <h1 class="title">景点分类</h1>
+                <h1 class="title">其他</h1>
             </ion-header-bar>
             <ion-content scroll="false">
                 <ion-list>
                     <ion-item>
-                        地区
-                    </ion-item>
-                    <ion-item>
-                        评分
+                        随机景点
                     </ion-item>
                 </ion-list>
             </ion-content>

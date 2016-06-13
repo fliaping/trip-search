@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sight>
+    <site>you.ctrip.com</site>
+    <item name="site_id">
+        <rules>
+        </rules>
+    </item>
+
+    <item name="name">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='f_left']/h1/a/text()</value>
+            </arule>
+        </rules>
+    </item>
+
+    <item name="images" multi="true">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='carousel-inner']/div/a/img/@src</value>
+            </arule>
+        </rules>
+    </item>
+
+    <item name="score">
+        <rules>
+            <arule method="xpath">
+                <value>//span[@class='score']/b/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="intro">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class="toggle_l"]/div/html()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="address">
+        <rules>
+            <arule method="xpath">
+                <value>//p[@class='s_sight_addr']/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="comments">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@id='sightcommentbox']/div/ul/li/span[@class='heightbox']/tidyText()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="comment_num">
+        <rules>
+            <arule method="xpath">
+                <value>//span[@class='f_orange']/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="near_hotels">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='guess_interested_list']/ul/li</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="tickets">
+        <rules>
+            <arule method="xpath">
+                <value>//table[@class='s_recom_list_table']</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="traffic">
+        <rules>
+            <arule method="xpath">
+                <value></value>
+            </arule>
+        </rules>
+    </item>
+    <item name="coordinate">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class="s_sight_map"]/a/img/@src</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="types">
+        <rules>
+            <arule method="xpath">
+                <value>//span[@class='s_sight_con']/a/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="place">
+        <rules>
+            <arule method="xpath">
+                <value></value>
+            </arule>
+        </rules>
+    </item>
+    <item name="pageurl">
+        <rules>
+            <arule method="xpath">
+                <value>//link[@rel='canonical']/@href</value>
+            </arule>
+        </rules>
+    </item>
+</sight>

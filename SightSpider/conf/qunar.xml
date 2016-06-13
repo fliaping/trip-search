@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sight>
+    <site>you.ctrip.com</site>
+    <item name="site_id">
+        <rules>
+
+        </rules>
+    </item>
+
+    <item name="name">
+        <rules>
+            <arule method="xpath">
+                <value>//h1[@class='tit']/text()</value>
+            </arule>
+        </rules>
+    </item>
+
+    <item name="images" multi="true">
+        <rules>
+            <arule method="xpath">
+                <value>//ul[@id='idSlider']/li/img/@src</value>
+            </arule>
+        </rules>
+    </item>
+
+    <item name="score">
+        <rules>
+            <arule method="xpath">
+                <value>//span[@class='cur_score']/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="intro">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='e_db_content_box']/html()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="address">
+        <rules>
+            <arule method="xpath">
+                <value>//td[@class='td_l']/dl/dd/span/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="comments">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='e_comment_content']/p/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="comment_num">
+        <rules>
+            <arule method="xpath">
+                <value>//span[@class='e_nav_comet_num']/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="near_hotels">
+        <rules>
+            <arule method="xpath">
+                <value></value>
+            </arule>
+        </rules>
+    </item>
+    <item name="tickets">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='b_detail_section b_detail_ticket']/div[@class='e_db_content_box e_db_content_dont_indent']</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="traffic">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='b_detail_section b_detail_traffic']/div[@class='e_db_content_box e_db_content_dont_indent']</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="coordinate">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='mapbox']/@latlng</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="types">
+        <rules>
+            <arule method="xpath">
+                <value></value>
+            </arule>
+        </rules>
+    </item>
+    <item name="place">
+        <rules>
+            <arule method="xpath">
+                <value>//div[@class='e_crumbs']/ul/li/a/text()</value>
+            </arule>
+        </rules>
+    </item>
+    <item name="pageurl">
+        <rules>
+            <arule method="xpath">
+                <value>//link[@rel='canonical']/@href</value>
+            </arule>
+        </rules>
+    </item>
+</sight>

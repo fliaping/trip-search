@@ -1,27 +1,34 @@
-<ion-view title="{{sight.name}}">
 
+<ion-view title="{{sight.name}}">
     <ion-nav-bar class="bar"><!--bar-positive-->
         <ion-nav-back-button class="button-icon ion-ios-arrow-left">
         </ion-nav-back-button>
 
         <ion-nav-buttons side="right">
-            <a class="button button-icon ion-ios-paperplane-outline" href="{{sight.pageurl}}"></a>
+            <a class="button button-icon ion-ios-paperplane-outline" ng-click="openUrl(sight.pageurl)"></a>
             <!--ion-ios-upload-outline   ion-ios-world-outline-->
         </ion-nav-buttons>
 
     </ion-nav-bar>
-    <ion-content>
 
+    <ion-content >
         <!--图片滚动栏-->
-        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+        <ion-slide-box on-slide-changed="slideChanged(index)" style="z-index: 99999">
             <ion-slide>
-                <div class="box blue"><h1>BLUE</h1></div>
+                <div style="max-width: 100%;">
+                    <img ng-src="{{sight.images}}" width="100%">
+                </div>
+
             </ion-slide>
             <ion-slide>
-                <div class="box yellow"><h1>YELLOW</h1></div>
+                <div style="max-width: 100%;">
+                    <img ng-src="{{sight.images}}" width="100%">
+                </div>
             </ion-slide>
             <ion-slide>
-                <div class="box pink"><h1>PINK</h1></div>
+                <div style="max-width: 100%;max-height: 60%;">
+                    <img ng-src="{{sight.images}}" width="100%">
+                </div>
             </ion-slide>
         </ion-slide-box>
         <!--基本信息-->
@@ -30,25 +37,68 @@
                 景点介绍
             </div>
             <div class="item item-text-wrap">
-                {{sight.intro}}
+                <div data-ng-bind-html="sight.intro"></div>
             </div>
         </div>
+
+        <div class="card" >
+            <div class="item item-divider">
+                基本信息
+            </div>
+            <div class="item item-text-wrap">
+                <b>所在地: </b> <em ng-repeat="place in sight.place"> > {{place}} </em><br/>
+                <b>地址: </b> {{sight.address}}<br/>
+                <b>景点类型: </b><em ng-repeat="type in sight.type">{{type}} &nbsp;&nbsp; </em><br/>
+
+            </div>
+        </div>
+
         <!--地图-->
         <div id="container" class="card" style="height: 200px;"></div>
 
-        <!--详细介绍,评论,线路票务-->
-        <div class="card" >
+        <!--酒店-->
+        <div class="card" ng-show="sight.near_hotels.length > 0">
             <div class="item item-divider">
-                评论
+                附近酒店
+                <span class="badge badge-assertive">{{sight.near_hotels.length}}</span>
+            </div>
+                <ul class="list" style="padding: 5%;">
+                    <div data-ng-bind-html="hotel" ng-repeat="hotel in sight.near_hotels" style="width: 140px;height:175px;float: left;" ></div>
+                </ul>
+        </div>
+        <!--交通-->
+        <div class="card" ng-show="sight.tickets.length > 0">
+            <div class="item item-divider">
+                票务
+                <span class="badge badge-assertive">{{sight.tickets.length}}</span>
             </div>
             <div class="item item-text-wrap">
-                <!--详细介绍,评论,线路票务-->
+                <div data-ng-bind-html="ticket" ng-repeat="ticket in sight.tickets"></div>
+            </div>
+        </div>
+        <!--评论-->
+        <div class="card" ng-show="sight.comments.length > 0">
+            <div class="item item-divider">
+                评论
+                <span class="badge badge-assertive">{{sight.comment_num}}</span>
+            </div>
+            <div class="item item-text-wrap">
+
+                <ul class="list">
+                    <li class="item" ng-repeat="com in sight.comments" >
+                        {{com | offhtml}}
+                    </li>
+                </ul>
             </div>
         </div>
 
+
         <ion-content>
 
+
+
+
 </ion-view>
-<script></script>
+
 
 

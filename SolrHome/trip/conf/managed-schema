@@ -110,7 +110,7 @@
      in a compatible way. Any analysis applied to the <uniqueKey> should _not_ produce multiple
      tokens
    -->   
-   <!-- <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> --> 
+   
 
    <!-- Dynamic field definitions allow using convention over configuration
        for fields via the specification of patterns to match field names. 
@@ -164,7 +164,7 @@
  <!-- Field to use to determine and enforce document uniqueness. 
       Unless this field is marked with required="false", it will be a required field
    -->
- <uniqueKey>sight_id</uniqueKey>
+ <uniqueKey>id</uniqueKey>
 
   <!-- copyField commands copy one field to another at the time a document
         is added to the index.  It's used either to index the same field differently,
@@ -541,42 +541,53 @@
 
     <fieldType name="text_mmseg4j_complex" class="solr.TextField" positionIncrementGap="100" >
        <analyzer>
-          <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="complex" dicPath="/Users/Payne/Workspace/GitHub/trip-search/SolrHome/trip/conf"/>
+          <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="complex" dicPath="/exe/comConf"/>
           <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
         </analyzer>
     </fieldType>
     <fieldType name="text_mmseg4j_maxword" class="solr.TextField" positionIncrementGap="100" >
          <analyzer>
-           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="/Users/Payne/Workspace/GitHub/trip-search/SolrHome/trip/conf"/>
+           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="max-word" dicPath="/exe/comConf"/>
            <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
          </analyzer>
      </fieldType>
      <fieldType name="text_mmseg4j_simple" class="solr.TextField" positionIncrementGap="100" >
         <analyzer>
-           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="simple" dicPath="/Users/Payne/Workspace/GitHub/trip-search/SolrHome/trip/conf"/>
+           <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="simple" dicPath="/exe/comConf"/>
            <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
          </analyzer>
      </fieldType>
 <!-- mmseg4j-->
+
   <fieldType  name="location_rpt"     class="solr.SpatialRecursivePrefixTreeFieldType" spatialContextFactory="com.spatial4j.core.context.jts.JtsSpatialContextFactory" distErrPct="0.025" maxDistErr="0.000009" units="degrees"/>
 
-  <field name="sight_id" type="int" indexed="true" stored="true" required="true" multiValued="false"/>
-  <field name="sight_name" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
-  <field name="sight_score_ctrip" type="float" stored="true"/>
-  <field name="sight_intro" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
-  <field name="sight_address" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
 
+  <field name="id" type="int" indexed="true" stored="true" required="true" multiValued="false" /> 
+  <field name="sight_id" type="int" indexed="true" stored="true" required="true" multiValued="false"/>
+  <field name="sight_name" type="text_mmseg4j_complex" indexed="true" stored="true"/>
+  <field name="sight_images" type="string" indexed="false" stored="true"/>
+  <field name="sight_score" type="float" indexed="true" stored="true"/>
+  <field name="sight_intro" type="text_mmseg4j_maxword" indexed="true" stored="true"/>
+  <field name="sight_address" type="text_mmseg4j_complex" indexed="true" stored="true"/>
+  <field name="sight_comments" type="text_mmseg4j_maxword"  indexed="true"     stored="true"     multiValued="true" />
+  <field name="sight_comment_num" type="int" indexed="true" stored="true"/>
+  <field name="sight_near_hotels" type="string" indexed="false" stored="true" multiValued="true"/>
+  <field name="sight_tickets" type="string" indexed="false" stored="true" multiValued="true"/>
+  <field name="sight_traffic" type="string" indexed="false" stored="true" multiValued="false"/>
   <field name="sight_coordinate" type="location_rpt"  indexed="true"     stored="true"     multiValued="false" />
   
-  <field name="sight_type" type="string" indexed="true" stored="true" multiValued="true"/>
-  <field name="sight_type_to" type="text_mmseg4j_maxword" indexed="true" multiValued="true"/>
-  <copyField source="sight_type" dest="sight_type_to"/>
+  <field name="sight_type" type="text_mmseg4j_maxword" indexed="true" stored="true" multiValued="true"/>
+
+  <field name="sight_place" type="text_mmseg4j_maxword" indexed="true" stored="true" multiValued="true"/>
 
   <field name="pageurl" type="string"  stored="true"/>
+
+  
 
   <dynamicField name="sight_place_*" type="string" indexed="true" stored="true" multiValued="false"/>
   <field name="sight_place_to" type="text_mmseg4j_complex" indexed="true" multiValued="true"/>
   <copyField source="sight_place_*" dest="sight_place_to"/>
+
 
   
 

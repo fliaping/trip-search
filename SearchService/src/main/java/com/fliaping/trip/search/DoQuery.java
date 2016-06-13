@@ -1,23 +1,25 @@
 package com.fliaping.trip.search;
 
-import com.fliaping.trip.search.entity.Sight;
-import com.fliaping.trip.search.entity.SightFacet;
-import com.fliaping.trip.search.entity.SightList;
+import com.fliaping.trip.search.entity.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.FacetField;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.client.solrj.response.RangeFacet;
 import org.apache.solr.common.SolrDocumentList;
+import org.apache.solr.common.params.FacetParams;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import static com.fliaping.trip.search.Util.notNull;
 
@@ -27,7 +29,7 @@ import static com.fliaping.trip.search.Util.notNull;
  */
 public class DoQuery {
 
-    private HttpSolrClient solrClient = MySolrClient.getSolrClient();
+    private SolrClient solrClient = MySolrClient.getSolrClient();
     private HttpServletRequest request;
     private HttpServletResponse response;
     private SolrQuery solrQuery;
@@ -131,14 +133,23 @@ public class DoQuery {
 
         }else if (SortOrder.score.is(sortOrder)){ //评分排序
 
-            solrQuery.setSort("sight_score_ctrip", SolrQuery.ORDER.desc);
+            solrQuery.setSort("sight_score", SolrQuery.ORDER.desc);
 
-        }else if (SortOrder.price.is(sortOrder)){ //价格排序
-            // TODO: 5/15/16 价格排序
+        }else if (SortOrder.comment.is(sortOrder)){ //评论数量排序
+            solrQuery.setSort("sight_comment_num", SolrQuery.ORDER.desc);
+
+        }else if (SortOrder.keyword.is(sortOrder)){ //关键词最佳匹配
+            // 关键词最佳匹配
+            solrQuery.set("defType","dismax");
+            solrQuery.set("qf","sight_name^2 sight_intro^1 sight_comments^0.8");
 
         }else if (SortOrder.best.is(sortOrder)){ //综合排序
-            // TODO: 5/15/16 综合排序
-
+            //  &defType=dismax&qf=sight_name^10+sight_coordinate^5
+            solrQuery.set("defType","dismax");
+            solrQuery.set("qf","sight_name^2 sight_intro^1");
+            //solrQuery.set("bf", "sum(div(Song_Quality,0.01),if(exists(Song_FileMV),20000,0),recip(ms(NOW,Song_CreateTimeForNew),1,10000,1))");
+            solrQuery.addSort("geodist()", SolrQuery.ORDER.asc);
+            solrQuery.addSort("sight_score", SolrQuery.ORDER.desc);
         }
 
         //设置过滤
@@ -148,15 +159,40 @@ public class DoQuery {
             String[] type = sight_type.split(",");
             for (String item : type) {
                 if (item != null){
-                    solrQuery.addFilterQuery("sight_type:"+item);
+                    //solrQuery.addFilterQuery("sight_type:"+item);
+                    solrQuery.addFacetQuery("sight_type:"+item);
                 }
             }
         }
-        //:TODO 设置地区过滤
 
-        //:TODO 设置距离过滤
+        // 设置距离过滤
+        String distance = request.getParameter(UrlP.distance.name());
+        if (distance != null ) {
+            //判断纯数字距离值有效  //0.x or xxxx
+            if(distance.matches("^((0.[1-9])|([1-9][0-9]{0,3}))$")){
+                solrQuery.set("d",distance);
+            }
+            //判断距离范围值有效 // xxx-xxx
+            else if (distance.matches("[0-9]+-[0-9]+")){
+                String fromto[] = distance.split("-");
+                solrQuery.addFacetQuery("{!frange l="+fromto[0]+".001 u="+fromto[1]+"}geodist()");
+            }
 
-        //:TODO 设置评分过滤
+
+        }
+
+        // 设置评分过滤
+        String score_range = request.getParameter(UrlP.score_range.name());
+        if(score_range != null && score_range.matches("[1-5],[1-5]")){
+            String score[] = score_range.split(",");
+            int start = Integer.parseInt(score[0]);
+            int end = Integer.parseInt(score[1]);
+            if (start < end){
+                //solrQuery.addFacetField("sight_score:["+start+" TO "+end);
+                solrQuery.addFacetQuery("sight_score:["+start+" TO "+end);
+            }
+        }
+
 
 
 
@@ -167,8 +203,22 @@ public class DoQuery {
                 .set("hl.fl","sight_intro");*/
         //设置facet
         solrQuery.setFacet(true)
-                .setFacetMissing(true)
-                .set("facet.field","sight_type");
+                .setFacetMissing(true);
+        //景点类型facet
+        solrQuery.addFacetField(new String[]{"sight_type"});
+
+        //评分范围facet
+        solrQuery.add("facet.range","sight_score");
+
+        solrQuery.add("f.sight_score.facet.range.start","1")
+                .add("f.sight_score.facet.range.end","5.1")
+                .add("f.sight_score.facet.range.gap","1");
+
+        solrQuery.addFacetQuery("{!frange l=0 u=5}geodist()")
+                .addFacetQuery("{!frange l=5.001 u=50}geodist()")
+                .addFacetQuery("{!frange l=50.001 u=500}geodist()")
+                .addFacetQuery("{!frange l=500.001 u=5000}geodist()");
+
 
 
         System.out.println(solrQuery.toQueryString());
@@ -199,32 +249,86 @@ public class DoQuery {
         SightList sightList = new SightList();
 
         if(hasFacet){
-            List<SightFacet> sightFacets = new ArrayList<SightFacet>();
-            //整理facet数据
-            List facet = queryResponse.getFacetFields();
-            for (int i = 0; i < facet.size(); i++) {
+
+            //整理facetFields数据
+            List<SightFacetField> sightFacetFields = new ArrayList<SightFacetField>();
+            List facetFields = queryResponse.getFacetFields();
+            for (int i = 0; i < facetFields.size(); i++) {
                 //取得每个facet的信息
-                FacetField ff = (FacetField) facet.get(i);
+                FacetField ff = (FacetField) facetFields.get(i);
                 //System.out.println("name:"+ff.getName()+" valuecount:"+ff.getValueCount());
 
-                SightFacet sightFacet = new SightFacet(); //facet对象
-                sightFacet.setFacetName(ff.getName()); //设置facet的field名字
-                List<SightFacet.Item> items = new ArrayList<SightFacet.Item>();
+                SightFacetField sightFacetField = new SightFacetField(); //facet对象
+                sightFacetField.setFacetName(ff.getName()); //设置facet的field名字
+                List<SightFacetField.Item> items = new ArrayList<SightFacetField.Item>();
                 //取得每个facet中的每个item
                 List<FacetField.Count> countList =  ff.getValues();
                 for (int j = 0; j < countList.size(); j++) {
                     FacetField.Count count = countList.get(j);
                     if (count.getCount() <= 0) continue; //facet中没有数据的,不加入结果集
                     //System.out.println("name:"+count.getName()+" count:"+count.getCount());
-                    SightFacet.Item item = new SightFacet.Item(count.getName(),count.getCount());
+                    SightFacetField.Item item = new SightFacetField.Item(count.getName(),count.getCount());
                     items.add(item);
                 }
 
-                sightFacet.setFacetCount(items.size()); //设置facet中的个数
-                sightFacet.setItems(items);   //设置facet中的items
-                sightFacets.add(sightFacet);  //添加到facet列表中
+                sightFacetField.setFacetCount(items.size()); //设置facet中的个数
+                sightFacetField.setItems(items);   //设置facet中的items
+                sightFacetFields.add(sightFacetField);  //添加到facet列表中
             }
-            sightList.setSightFacets(sightFacets);
+            sightList.setSightFacetFields(sightFacetFields);
+
+            //整理facetRanges数据
+            List<SightFacetRange> sightFacetRanges = new ArrayList<SightFacetRange>();
+            List<RangeFacet> facetRanges = queryResponse.getFacetRanges();
+            for (int i = 0; i < facetRanges.size(); i++) {
+                RangeFacet rf =  facetRanges.get(i);
+                SightFacetRange sightFacetRange = new SightFacetRange();
+                sightFacetRange.setFacetName(rf.getName());
+                sightFacetRange.setStart((Float) rf.getStart());
+                sightFacetRange.setEnd((Float) rf.getEnd());
+                sightFacetRange.setGap((Float) rf.getGap());
+                List items = new ArrayList<SightFacetRange.Item>();
+                //取得每个facet中的每个item
+                List<RangeFacet.Count> countList =  rf.getCounts();
+                for (int j = 0; j < countList.size(); j++) {
+                    RangeFacet.Count count = countList.get(j);
+                    //System.out.println("range:"+count.getValue()+" "+count.getCount());
+                    if (count.getCount() <= 0) continue; //facet中没有数据的,不加入结果集
+                    SightFacetRange.Item item = new SightFacetRange.Item(count.getValue(),count.getCount());
+                    items.add(item);
+                }
+                sightFacetRange.setFacetCount(items.size()); //设置facet中的个数
+                sightFacetRange.setItems(items);   //设置facet中的items
+                sightFacetRanges.add(sightFacetRange);
+            }
+            sightList.setSightFacetRanges(sightFacetRanges);
+
+            //整理距离facet
+            List<SightFacetQuery> facetDistanceList = new ArrayList<SightFacetQuery>();
+            Map<String, Integer> facetQuery = queryResponse.getFacetQuery();
+
+            Iterator iterator = facetQuery.entrySet().iterator();
+            while (iterator.hasNext()){
+                Map.Entry<String, Integer> entry = (Map.Entry<String, Integer>) iterator.next();
+                String query = entry.getKey();
+                if (query.contains("geodist")){
+                    SightFacetQuery facetDistance = new SightFacetQuery();
+                    facetDistance.setQuery(query);
+
+                    int lstart = query.indexOf("l=") +2;
+                    int lend = query.indexOf(" ", lstart);
+                    String from = query.substring(lstart,lend);
+
+                    int ustart = query.indexOf("u=") +2;
+                    int uend = query.indexOf("}", ustart);
+                    String to = query.substring(ustart,uend);
+
+                    facetDistance.setAlias((int)Float.parseFloat(from)+" - "+(int)Float.parseFloat(to));
+                    facetDistance.setCount(entry.getValue());
+                    facetDistanceList.add(facetDistance);
+                }
+            }
+            sightList.setSightFacetDistances(facetDistanceList);
         }
 
 

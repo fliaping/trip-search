@@ -2,7 +2,6 @@ package com.fliaping.trip.search.entity;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +10,9 @@ import java.util.List;
 public class SightList {
     private List sights;
 
-    private List sightFacets;
+    private List<SightFacetField> sightFacetFields;
+    private List<SightFacetRange> sightFacetRanges;
+    private List<SightFacetQuery> sightFacetDistances;
 
     private long totalNum;
 
@@ -57,8 +58,8 @@ public class SightList {
         return time;
     }
 
-    public List getSightFacets() {
-        return sightFacets;
+    public List getSightFacetFields() {
+        return sightFacetFields;
     }
 
     public void setSights(List sights) {
@@ -81,7 +82,28 @@ public class SightList {
         this.time = time;
     }
 
-    public void setSightFacets(List sightFacets) {
-        this.sightFacets = sightFacets;
+
+
+    public List getSightFacetRanges() {
+        return sightFacetRanges;
     }
+
+
+
+    public void setSightFacetFields(List<SightFacetField> sightFacetFields) {
+        this.sightFacetFields = sightFacetFields;
+    }
+
+    public void setSightFacetRanges(List<SightFacetRange> sightFacetRanges) {
+        this.sightFacetRanges = sightFacetRanges;
+    }
+
+    public List<SightFacetQuery> getSightFacetDistances() {
+        return sightFacetDistances;
+    }
+
+    public void setSightFacetDistances(List<SightFacetQuery> sightFacetDistances) {
+        this.sightFacetDistances = sightFacetDistances;
+    }
+
 }

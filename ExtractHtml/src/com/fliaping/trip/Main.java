@@ -16,10 +16,10 @@ public class Main {
     private static long lasttime = 0;
 
     public static void main(String[] args) {
-        String dir = "/Users/Payne/SyncFolder/BaiduYun/百度云同步盘/MyMacProSyncFolder/毕业设计/Project/Heritrix/Data/html/you.ctrip.com/sight/";
+        String dir = "/Users/Payne/Workspace/GraduateProject/Heritrix/Data/html/you.ctrip.com/sight";
 
         //debug
-        //String filePath = "/Users/Payne/SyncFolder/BaiduYun/百度云同步盘/MyMacProSyncFolder/毕业设计/Project/Heritrix/Data/html/you.ctrip.com/sight/tulcea21064/1777014.html";
+        String filePath = "/Users/Payne/Workspace/GraduateProject/Heritrix/Data/html/you.ctrip.com/sight/abudhabi1353/71290.html";
 
 
         File dirFile =  new File(dir);
@@ -31,10 +31,10 @@ public class Main {
         }
 
         //debug
-        //File testFile = new File(filePath);
-        //resloveFile(testFile);
+        File testFile = new File(filePath);
+        resloveFile(testFile);
 
-        resloveFile(new File(dir));
+        //resloveFile(new File(dir));
 
         try {
             writeLog("time: "+(System.currentTimeMillis()-begintime)/1000+"  success: "+success+"  ExtratError: "+extraterror+"  inserterror: "+inserterror);
@@ -59,13 +59,14 @@ public class Main {
                 boolean isSkip = false;
                 try{
                     sight = Extractor.extractHtml(file);
+                    System.out.println(sight);
                 }catch (Exception e){
                     isSkip = true;
                     extraterror++;
                     writeLog("extract error   "+file.getPath());
                     System.out.println("解析失败  "+ file.getPath());
                 }
-                if(!isSkip){
+                /*if(!isSkip){
                     try{
                         int result = sightInsert.insert(sight);
                         if(result > 0){
@@ -85,7 +86,7 @@ public class Main {
                         writeLog("insert error   "+file.getPath());
                         System.out.println("插入失败  "+ file.getPath());
                     }
-                }
+                }*/
             }
         }else {
             //System.out.println("分析文件夹  "+file.getPath());

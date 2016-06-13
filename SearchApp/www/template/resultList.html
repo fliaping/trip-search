@@ -23,9 +23,18 @@
                 <div class="list" style="padding-bottom: 70px;">
 
                     <a class="item " nav-direction="enter" href="#/sightDetail/key/{{item.id}}" ng-repeat="item in ksResults.sights">
-                        <h2>{{item.name}} <i style="float: right;font-size: 12px">评分:{{item.score_ctrip}}</i></h2>
-                        <p>简介:{{item.intro}}</p>
+                        <h2>{{item.name}} <i style="float: right;font-size: 12px">{{item._dist_ | distance}}&nbsp;&nbsp;评分: {{item.score}}&nbsp;&nbsp;评论数量:{{item.comment_num}}</i></i></h2>
+                        <p>简介:{{item.intro | offhtml}}</p>
                     </a>
+
+
+                    <div style="width: 100%;padding-left: 45%">
+                        <ion-spinner icon="spiral" ng-show="showspinner"></ion-spinner>
+                    </div>
+
+                    <div class="item item-divider">
+                        <button class="button button-outline button-positive button-small" ng-click="searchMore(ksResults.nowPage+1)">加载更多</button>
+                    </div>
 
                    <!-- <a class="item item-thumbnail-left" href="#">
                         <img src="http://www.runoob.com/try/demo_source/blue-album.jpg">
@@ -52,8 +61,8 @@
         <ion-header-bar class="bar">
 
             <button class="button button-icon icon " ng-class="{'ion-ios-circle-outline':facetview.typeUncheck,'ion-ios-checkmark-outline':facetview.typeCheckAll}"
-                    ng-click="typeCheckButton(facetview)"></button>
-            <h1 class="title">筛选</h1>
+                    ng-click="typeCheckButton(facetview)" ng-show="facetview.showCheckButton" ></button>
+            <h1 class="title" ng-click="backToFacet()">{{facetview.title}}</h1>
             <button class="button" ng-show="facetview.showCompleteButton" ng-click="completeAction(facetview)">
                 完成
             </button>
@@ -65,14 +74,11 @@
                     <ion-item ng-click="showSightType()">
                         景点类型 <i class=" icon icon-right ion-chevron-right"></i>
                     </ion-item>
-                    <ion-item>
-                        距离区间
+                    <ion-item ng-click="showDistanceType(null)">
+                        距离区间 <i class=" icon icon-right ion-chevron-right"></i>
                     </ion-item>
-                    <ion-item>
-                        地区
-                    </ion-item>
-                    <ion-item>
-                        评分
+                    <ion-item ng-click="showScoreType()">
+                        评分区间 <i class=" icon icon-right ion-chevron-right"></i>
                     </ion-item>
                 </ion-list>
             </div>
@@ -89,7 +95,29 @@
                     </ion-checkbox>
                 </ion-list>
             </div>
+            <!--距离区间-->
+            <div ng-show="facetview.showDistance">
+                <ion-list >
+                    <ion-radio ng-repeat="item in sightDistance"
+                                ng-value = "item.alias"
+                                ng-click="showDistanceType(item.alias)">
+                        {{item.alias}} 千米  ({{item.count}})
+                    </ion-radio>
+                    <ion-radio ng-click="showDistanceType('clear')">清除当前筛选</ion-radio>
+                </ion-list>
+            </div>
 
+            <!--评分区间-->
+            <div ng-show="facetview.showScore">
+                <ion-list >
+                    <ion-radio ng-repeat="item in sightScore"
+                               ng-value = "item.name"
+                               ng-click="showScoreType(item.name+'-'+item.end)">
+                        {{item.name}}-{{item.end}} 分  ({{item.count}})
+                    </ion-radio>
+                    <ion-radio ng-click="showScoreType('clear')">清除当前筛选</ion-radio>
+                </ion-list>
+            </div>
         </ion-content>
 
     </ion-side-menu>
@@ -105,8 +133,8 @@
                     <ion-radio ng-model="popover.sortType" value="score" ng-click="sortAction()">
                         按评分排序
                     </ion-radio>
-                    <ion-radio ng-model="popover.sortType" value="price" ng-click="sortAction()">
-                        按价格排序
+                    <ion-radio ng-model="popover.sortType" value="comment" ng-click="sortAction()">
+                        按评论数量排序
                     </ion-radio>
                     <ion-radio ng-model="popover.sortType" value="best" ng-click="sortAction()">
                         综合排序

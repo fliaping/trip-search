@@ -19,6 +19,8 @@ public class Search extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        //resp.getWriter().println("hello");
+
         DoQuery query = new DoQuery(req,resp);
         String query_type = req.getParameter(UrlP.query_type.name());
 
@@ -35,29 +37,6 @@ public class Search extends HttpServlet{
         }
 
 
-    }
-
-
-    private String urlCode(){
-        String result = "";
-        if(availability("keyword") )  result+="1"; else result+="0";
-        if(availability("point"))  result+="1"; else result+="0";
-        if(availability("bound_type") )  result+="1"; else result+="0";
-        if(availability("boundary") )  result+="1"; else result+="0";
-        if(availability("sort_order") )  result+="1"; else result+="0";
-        if(availability("sight_type") )  result+="1"; else result+="0";
-        return result;
-    }
-
-    /**
-     * 初步判断参数是否有效
-     * @param param 参数key
-     * @return true or false
-     */
-    private boolean availability(String param){
-        String[] value = urlMap.get(param);
-        if(null != value && value.length>0 && "" != value[0]) return true;
-        else return false;
     }
 
 }

@@ -11,6 +11,7 @@ package com.fliaping.trip.search;
  *    boundary         范围                                 null
  *    sort_order       排序方式 {score,distance}             null
  *    sight_type       景点类型                              null
+ *    score_range      评分范围 {1,2}                        1,5
  *    place            行政区划                              null
  *    page             页数                                  1
  *    rows             每页记录条数                           10
@@ -19,11 +20,12 @@ package com.fliaping.trip.search;
 enum UrlP{   // url parameter enum ,url参数枚举
     keyword,           //关键词                               null
     point,             //坐标点                               null
-    distance,          //距离                                 100KM
+    distance,          //距离(距离范围)                        100KM
     bound_type,        //界限方式{geofilt,bbox,linestring,polygon}   null
     boundary,          //范围                                 null
     sort_order,        //排序方式 {score,distance}             null
     sight_type,        //景点类型                              null
+    score_range,       //评分范围 {1,2}                        1,5
     place,             //行政区划                              null
     page,              //页数                                  1
     rows,              //每页记录条数                           10
@@ -47,7 +49,7 @@ enum SortOrder {
     score("score"),
     distance("distance"),
     best("best"),
-    price("price"),
+    comment("comment"),
     keyword("keyword");
 
     private String name;

@@ -1,0 +1,16 @@
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/.DS_Store
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/00db8fd2916e2b362fdd23836b1dd0b6.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/030e8279399982084ef7c0eeccc3ff15.json
+Duplicate insert error /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/123cf81fd4dc02f2d21909189cfbb6a6.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/18b8b3d0d6a0b8c0dcc721e9843c36c3.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/38605ed45966571fdbe1e6f1a6bb8e20.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/596f0e9bc68f6022849c2fec8355fe52.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/6130c2aff9246c4d45cfd2ec3b3b7fa0.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/9036b0e94838e569d0ddc5cfdcc6caf9.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/9106cf900af51005a13e2766a164fded.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/923939675428e8395dc51304b32f9da2.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/bc7bbfb93064b30374dc2bf597cdb341.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/bed6b2311cdf881e27917cfe5998e049.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/d459ea54e6426dc891e779192e3e061c.json
+extract error   /Users/Payne/Workspace/GitHub/trip-search/SightSpider/data/travel.qunar.com/d96aaeff37d24052cd95da74f7731572.json
+time: 141  success: 13789  ExtratError: 14  inserterror: 1
