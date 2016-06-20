@@ -10,3 +10,20 @@
 
 
 本repository中的代码主要是爬虫模块、网页抽取模块、搜索服务、客户端的代码。
+
+```
+.
+├── ExtractHtml
+├── README.md
+├── SearchApp
+├── SearchService
+├── SightSpider
+└── SolrHome
+```
+
+* `ExtractHtml `  前期单独使用jsoup解析html文件的模块
+* `README.md`  readme文档（本文档）
+* `SearchApp`  客户端程序的源码模块
+* `SearchService`   搜索服务API模块
+* `SightSpider`   扩展webmagic进行网页爬取的模块，并包含利用jsoup和XPath进行html解析的模块
+* `SolrHome` Solr的Home目录，忽略了索引文件和日志文件，主要是Solr的配置文件。

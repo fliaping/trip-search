@@ -277,8 +277,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-383" />
-    <option name="y" value="140" />
+    <option name="x" value="38" />
+    <option name="y" value="23" />
     <option name="width" value="1241" />
     <option name="height" value="777" />
   </component>
@@ -548,8 +548,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-383" y="140" width="1241" height="777" extended-state="0" />
-    <editor active="true" />
+    <frame x="38" y="23" width="1241" height="777" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19016394" sideWeight="0.4948905" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
